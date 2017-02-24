@@ -71,5 +71,5 @@ tidydata <- dcast(datamelt, activity_label + subject ~ variable, mean)
 
 ##write tidydata to new file
 
-write.table(tidydata,file="tidydata.txt") 
+write.table(tidydata,file="tidydata.txt",row.name=FALSE) 
 
