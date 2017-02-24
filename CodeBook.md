@@ -6,30 +6,30 @@ This Code Book describes the data transformations in run_analysis.R and the vari
 
 The run_analysis.R script creates a tidy version of the UCI Human Activity Recognition Using smartphones Dataset. The script executes the following steps.
 
-1. The training and test data sets are merged. 
+1 The training and test data sets are merged. 
 
-* "X_train.txt", "subject_train.txt", and "y_train.txt" are combined using cbind to create the training data set.
-* "X_test.txt", "subject_test.txt", and "y_test.txt" are combined using cbind to create the test data set.
-* The training and test data sets are combined using rbind.
-* "features.txt", "activity", and "subject" are assigned as column names.
+    * "X_train.txt", "subject_train.txt", and "y_train.txt" are combined using cbind to create the training data set.
+    * "X_test.txt", "subject_test.txt", and "y_test.txt" are combined using cbind to create the test data set.
+    * The training and test data sets are combined using rbind.
+    * "features.txt", "activity", and "subject" are assigned as column names.
 
-2. The measurements on mean and standard deviation are extracted.
+2 The measurements on mean and standard deviation are extracted.
 
-* The grep function is used to identify and subset only variable names that include "mean" and "std".
+    * The grep function is used to identify and subset only variable names that include "mean" and "std".
 
-3. Descriptive activity names are added.
+3 Descriptive activity names are added.
 
-* The "activity_labels.txt"" file is merged with the extracted data using the merge function, adding a column with descriptive activity names.
+    * The "activity_labels.txt"" file is merged with the extracted data using the merge function, adding a column with descriptive activity names.
 
-4. The variables are labeled with descriptive names.
+4 The variables are labeled with descriptive names.
 
-* The gsub function generates more descriptive names for the variables (e.g. "Acceleration" is substituted for "Acc", "time" for "t",etc.)
+    * The gsub function generates more descriptive names for the variables (e.g. "Acceleration" is substituted for "Acc", "time" for "t",etc.)
 
-5. A tidy data set is generated with the average of each variable for each activity and subject, using the reshape package.
+5 A tidy data set is generated with the average of each variable for each activity and subject, using the reshape package.
 
-* The melt function is used to create a narrow data frame, with "activity_labels" and "subject" as id variables.
-* The dcast function takes the melted data frame and finds the mean value of each measurement for each activity and subject.
-* The write.table function generates a new tidy data frame, "tidydata.txt".
+    * The melt function is used to create a narrow data frame, with "activity_labels" and "subject" as id variables.
+    * The dcast function takes the melted data frame and finds the mean value of each measurement for each activity and subject.
+    * The write.table function generates a new tidy data frame, "tidydata.txt".
 
 ##**Variables**
 
